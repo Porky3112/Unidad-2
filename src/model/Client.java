@@ -10,6 +10,21 @@ public class Client{
     private double totalValuepay;
 
 
+    public Client(){
+
+        nameClient = 
+
+
+
+
+
+
+    }
+
+
+
+
+
 
 
 
