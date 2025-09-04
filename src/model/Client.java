@@ -3,10 +3,10 @@ package model;
 public class Client{
 
     private String nameClient;
-    private String registerNumberClient;
-    private LocalDate dateExpidition;
+    private String CommercialRegister;
+    private LocalDate expirationDate;
     private String typeClient;
-    private int cuantitykilosTransport;
+    private int kilosTransportQuantity;
     private double totalValuepay;
 
 
