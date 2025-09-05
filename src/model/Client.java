@@ -7,26 +7,18 @@ public class Client{
     private LocalDate expirationDate;
     private String typeClient;
     private int kilosTransportQuantity;
-    private double totalValuepay;
+    private int totalValuepay;
 
 
-    public Client(){
+    public Client(String name, String number, String type, int kilos, int totalPay ){
 
-        nameClient = 
-
-
-
-
+        nameClient = name;
+        CommercialRegister = number;
+        typeClient = type;
+        kilosTransportQuantity = kilos;
+        totalValuepay = totalPay;
 
 
     }
-
-
-
-
-
-
-
-
 
 }

@@ -1,19 +1,11 @@
 import java.util.Scanner;
 import model.Client;
 
-
-
 public class MorganApp{
 
-    private Scanner scan = new Scanner (System.in);
+    private static Scanner scan = new Scanner (System.in);
 
-    private Client client;
-
-
-
-    public void menu(){
-
-        int option;
+    public static void menu(Client cl1){
 
         do{
 
@@ -26,10 +18,12 @@ public class MorganApp{
             System.out.println("4. Verificar si el barco puede zarpar");
             System.out.println("5. Salir de APP");
 
+            int option = askInt();
+
             switch(option){
 
 
-                case 1:
+                case 1: client1  = crearClient();
                     break; 
                 case 2:
                     break;
@@ -49,34 +43,59 @@ public class MorganApp{
 
         }while( option != 5);
 
-
-
     }
 
-    public String ask(){
-
+    public static String ask(){
+        
         System.out.print(": ");
+        String answer = scan.nextLine();
 
-        return scan.nextLine();
+        return answer; 
 
 
     }
 
-    public  void createClient(){
+    public static int askInt(){
+        
+        System.out.print(": ");
+        int answer = scan.nextInt();
+        scan.nextLine();
 
-        System.out.println("Ingresa el nombre del cliente");
+        return answer; 
 
-        name = app.ask();
-
-        client1 = new Client(name);
-
-
-    
 
     }
 
-    public  void infoClient(){
 
+    public static Client crearClient(){
+
+        System.out.println("Digite el nombre del cliente");
+        String name = ask();
+
+        System.out.println("Digite el registro del mercado del cliente");
+        String number = ask();
+
+        System.out.println("Digite el tipo de cliente");
+        String type = ask();
+
+        System.out.println("Digite la cantidad de kilos que ha transportado el cliente");
+        int kilos = askInt();
+        
+        System.out.println("Digite el tipo de cliente");
+        int totalPay = askInt();
+
+        return new Client(name,number,type,kilos,totalPay);
+        
+    }
+
+    public static void infoClient(){
+
+    System.out.pritln("Informacion del cliente: ");
+    System.out.println("Nombre: " +  Client.getNombre()); 
+    System.out.println("Registro de mercado: " +  Client.getnumber());
+    System.out.println("Tipo: " + Client.getType());
+    System.out.println("Kilos transportados: " + Client.getKilo());
+    System.out.println("Registro de mercado: " + Client.getTotalPayClient());
 
     }
 
@@ -84,10 +103,9 @@ public class MorganApp{
 
     public static void main(String[] args) {
 
-        MorganApp app = new MorganApp();
+        Client client1;
 
-        app.menu();
-
+        menu(client1);
 
     }
 }
