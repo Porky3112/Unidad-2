@@ -1,14 +1,14 @@
 package ui;
 import java.util.Scanner;
 import java.time.LocalDate;
-import model.Client;
+import model.ShippinCompany;
 
 public class MorganApp{
 
     private static Scanner scan = new Scanner (System.in);
-    Private static LocalDate = ne
+  
 
-    public static void menu(Client cl1){
+    public static void menu(ShippinCompany myS){
 
         int option;
 
@@ -21,9 +21,11 @@ public class MorganApp{
             System.out.println();
             System.out.println("1. Cargar barco");
             System.out.println("2. Descargar el barco");
-            System.out.println("3. Peso total de la carga del barco");
+            System.out.println("3. Calcular peso total de la carga del barco");
             System.out.println("4. Verificar si el barco puede zarpar");
-            System.out.println("5. Salir de APP");
+            System.out.println("5. Cargar cliente");
+            System.out.println("6. Desplegar cliente");
+            System.out.println("7. Salir de APP");
             System.out.println("Ingresa una opcion: ");
 
             option = askInt();
@@ -36,14 +38,23 @@ public class MorganApp{
                 case 1: cl1  = crearClient(); 
                     infoClient(cl1);
                     break; 
+
                 case 2:
                     break;
+
                 case 3:
                     break;
+                    
                 case 4:
                     break;
+                
+                case 5:
+                    break;
 
-                case 5: System.out.println("Nos vemos pronto!!");
+                case 6:
+                    break;
+
+                case 7: System.out.println("Nos vemos pronto!!");
                     break;
 
                 default:
@@ -52,9 +63,11 @@ public class MorganApp{
 
 
 
-        }while( option != 5);
+        }while( option != 7);
 
     }
+
+
 
     public static String ask(){
         
@@ -78,7 +91,7 @@ public class MorganApp{
     }
 
 
-    public static Client crearClient(){
+    public static Client addClient(){
 
         System.out.println("Digite el nombre del cliente");
         String name = ask();
@@ -114,7 +127,7 @@ public class MorganApp{
 
     public static void main(String[] args) {
 
-        Client client1 = null;
+        ShippinCompany myShip = null;
 
         menu(client1);
 
