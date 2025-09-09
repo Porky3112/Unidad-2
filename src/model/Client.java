@@ -19,7 +19,7 @@ public class Client{
 
     }
 
-    public String getNombre(){
+    public String getName(){
 
         return this.nameClient;
 

@@ -1,14 +1,14 @@
 package ui;
 import java.util.Scanner;
-import java.time.LocalDate;
-import model.ShippinCompany;
+import model.ShippingCompany;
+
 
 public class MorganApp{
 
     private static Scanner scan = new Scanner (System.in);
   
 
-    public static void menu(ShippinCompany myS){
+    public static void menu(ShippingCompany myS){
 
         int option;
 
@@ -47,10 +47,11 @@ public class MorganApp{
                 case 4:
                     break;
                 
-                case 5: 
+                case 5: validationQuantityClients(myS);
+                    addClient(myS);
                     break;
 
-                case 6: addClient();
+                case 6: clientSelectionInfo(myS);
                     break;
 
                 case 7: System.out.println("Nos vemos pronto!!");
@@ -89,20 +90,19 @@ public class MorganApp{
 
     }
 
-    public static void validationQuantityClients(){
+    public static void validationQuantityClients(ShippingCompany myShipController){
 
-        validation = myShip.validationQuantityClients();
+        String validation = myShipController.validationQuantityClients();
 
-        if(validation == null){
+        if(validation == null ){
 
-            menu();
+            System.out.println("Error al agregar cliente.");
         }
     }
 
 
-    public static Client addClient(){
+    public static void addClient(ShippingCompany myShipController){
 
-        validationQuantityClients();
 
         System.out.println("Digite el nombre del cliente");
         String name = ask();
@@ -119,18 +119,72 @@ public class MorganApp{
         System.out.println("Digite el valor total pagado por el cliente");
         int totalPay = askInt();
 
-        myShip.addClient(String name, String number, String type, int kilos, int totalPay);
+        myShipController.addClient( name,  number,  type,  kilos,  totalPay);
         
     }
 
-    public static void infoClient(Client client1){
 
-    System.out.println("Informacion del cliente: ");
-    System.out.println("Nombre: " ); 
-    System.out.println("Registro de mercado: " );
-    System.out.println("Tipo: ");
-    System.out.println("Kilos transportados: " );
-    System.out.println("Registro de mercado: " );
+
+    public static int menuOfClients(ShippingCompany myShipController ){
+
+        String[] clientList = myShipController.selectionInfoClient();
+
+        int clientsNumber = myShipController.quantityClient();
+
+        int i;
+
+        for(i = 0; i < clientsNumber; i ++){
+
+            System.out.println((i + 1) +  " : " + clientList[i]);
+        }
+
+        int election = validationOfElectionInMenu(clientsNumber, clientList);
+
+        election -= 1;
+
+
+        return election;
+
+
+    }
+
+    public static int validationOfElectionInMenu(int cN, String[] cL){
+
+        int electionU;
+
+        int i;
+
+        do{ 
+
+            for(i = 0; i < cN; i ++){
+
+                System.out.println((i + 1) +  " : " + cL[i]);
+            }
+
+            System.out.println("Elige un cliente: ");
+
+            electionU = askInt();
+
+            if (electionU > cN  || electionU < 1){
+
+                System.out.println("Opcion incorrecta.");
+            }
+
+        }while(electionU > cN  || electionU < 1);
+
+        return electionU;
+        
+    }
+
+
+
+    public static void clientSelectionInfo(ShippingCompany myShipController){
+
+        int eletionUser = menuOfClients(myShipController);
+
+        String clientInformation = myShipController.clientSelectionInfo(eletionUser);
+
+        System.out.println(clientInformation);
 
     }
 
@@ -138,9 +192,10 @@ public class MorganApp{
 
     public static void main(String[] args) {
 
-        ShippinCompany myShip = null;
+        ShippingCompany myShip = new ShippingCompany("Morgan", "Naviera");
 
-        menu(ShippinCompany myShip);
+        menu( myShip);
 
     }
+
 }
