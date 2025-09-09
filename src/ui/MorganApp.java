@@ -35,8 +35,7 @@ public class MorganApp{
             switch(option){
 
 
-                case 1: cl1  = crearClient(); 
-                    infoClient(cl1);
+                case 1: 
                     break; 
 
                 case 2:
@@ -48,10 +47,10 @@ public class MorganApp{
                 case 4:
                     break;
                 
-                case 5:
+                case 5: 
                     break;
 
-                case 6:
+                case 6: addClient();
                     break;
 
                 case 7: System.out.println("Nos vemos pronto!!");
@@ -90,8 +89,20 @@ public class MorganApp{
 
     }
 
+    public static void validationQuantityClients(){
+
+        validation = myShip.validationQuantityClients();
+
+        if(validation == null){
+
+            menu();
+        }
+    }
+
 
     public static Client addClient(){
+
+        validationQuantityClients();
 
         System.out.println("Digite el nombre del cliente");
         String name = ask();
@@ -108,18 +119,18 @@ public class MorganApp{
         System.out.println("Digite el valor total pagado por el cliente");
         int totalPay = askInt();
 
-        return new Client(name,number,type,kilos,totalPay);
+        myShip.addClient(String name, String number, String type, int kilos, int totalPay);
         
     }
 
     public static void infoClient(Client client1){
 
     System.out.println("Informacion del cliente: ");
-    System.out.println("Nombre: " +  client1.getNombre()); 
-    System.out.println("Registro de mercado: " +  client1.getNumber());
-    System.out.println("Tipo: " + client1.getType());
-    System.out.println("Kilos transportados: " + client1.getKilo());
-    System.out.println("Registro de mercado: " + client1.getTotalPayClient());
+    System.out.println("Nombre: " ); 
+    System.out.println("Registro de mercado: " );
+    System.out.println("Tipo: ");
+    System.out.println("Kilos transportados: " );
+    System.out.println("Registro de mercado: " );
 
     }
 
@@ -129,7 +140,7 @@ public class MorganApp{
 
         ShippinCompany myShip = null;
 
-        menu(client1);
+        menu(ShippinCompany myShip);
 
     }
 }

@@ -1,6 +1,14 @@
 package model;
 
-public class ship{
+public class Ship{
+
+
+    
+
+    public Ship(){
+
+
+    }
 
     
 
