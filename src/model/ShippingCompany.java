@@ -54,7 +54,7 @@ public class ShippingCompany{
 
         else{
             
-            mesagge= null;
+            mesagge= "Cargando cliente...";
         }
 
         return mesagge;

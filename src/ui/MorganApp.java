@@ -26,7 +26,7 @@ public class MorganApp{
             System.out.println("5. Cargar cliente");
             System.out.println("6. Desplegar cliente");
             System.out.println("7. Salir de APP");
-            System.out.println("Ingresa una opcion: ");
+            System.out.println("Ingresa una opcion ");
 
             option = askInt();
 
@@ -48,7 +48,6 @@ public class MorganApp{
                     break;
                 
                 case 5: validationQuantityClients(myS);
-                    addClient(myS);
                     break;
 
                 case 6: clientSelectionInfo(myS);
@@ -94,10 +93,19 @@ public class MorganApp{
 
         String validation = myShipController.validationQuantityClients();
 
-        if(validation == null ){
 
-            System.out.println("Error al agregar cliente.");
+        if(validation != null  ){
+
+            System.out.println("Error al agregar Cliente");
+
         }
+
+        else{
+
+
+            addClient(myShipController);
+        }
+
     }
 
 
