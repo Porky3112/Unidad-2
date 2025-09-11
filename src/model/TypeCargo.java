@@ -1,6 +1,9 @@
-public enum TypeCargo{
+package model;
+
+
+enum TypeCargo{
 
     PERECEDERA,
-    PELIGROSA;
+    PELIGROSA
 
 }

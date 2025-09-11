@@ -16,7 +16,7 @@ public class ShippingCompany{
 
     }   
 
-    public Client addClient(String n, String nu, String ty, int k, int tP){
+    public Client addClient(String n, String nu, int election, int k, int tP){
 
         String mensaje = validationQuantityClients();
 
@@ -29,7 +29,7 @@ public class ShippingCompany{
 
             if (companyClients[i] == null){
 
-                client = new Client(n, nu, ty, k, tP);
+                client = new Client(n, nu, typeClient(election), k, tP);
                 companyClients[i] = client;
                 flat = false;
                 
@@ -78,6 +78,7 @@ public class ShippingCompany{
         return counter;
     }
 
+
     public String[] selectionInfoClient(){
 
         int i;
@@ -102,5 +103,35 @@ public class ShippingCompany{
             "Kilos transportados: " + temporalClient.getKilo() +
             "Total pagado: "+ temporalClient.getTotalPayClient();      
 
+    }
+
+    public TypeClient typeClient(int ele){
+
+        TypeClient clientType; 
+
+        switch(ele){
+            
+            case 1: 
+
+                clientType = TypeClient.NORMAL;
+                break;
+
+            case 2: 
+                clientType = TypeClient.PLATA;
+                break;
+
+            case 3: 
+                clientType = TypeClient.ORO;
+                break;
+
+            default: 
+            
+                clientType= TypeClient.PLATINUM;
+                break;
+  
+
+       }
+
+       return clientType;
     }
 }

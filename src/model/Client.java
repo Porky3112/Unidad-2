@@ -4,12 +4,12 @@ public class Client{
 
     private String nameClient;
     private String CommercialRegister;
-    private String typeClient;
+    private TypeClient typeClient;
     private int kilosTransportQuantity;
     private int totalValuePay;
 
 
-    public Client(String name, String number, String type, int kilos, int totalPay ){
+    public Client(String name, String number, TypeClient type, int kilos, int totalPay ){
 
         this.nameClient = name;
         this.CommercialRegister = number;
@@ -31,7 +31,7 @@ public class Client{
 
     }
 
-    public String getType(){
+    public TypeClient getType(){
 
         return this.typeClient;
 

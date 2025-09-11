@@ -119,7 +119,8 @@ public class MorganApp{
         String number = ask();
 
         System.out.println("Digite el tipo de cliente");
-        String type = ask();
+        int election = typeClient(myShipController);
+
 
         System.out.println("Digite la cantidad de kilos que ha transportado el cliente");
         int kilos = askInt();
@@ -127,7 +128,8 @@ public class MorganApp{
         System.out.println("Digite el valor total pagado por el cliente");
         int totalPay = askInt();
 
-        myShipController.addClient( name,  number,  type,  kilos,  totalPay);
+
+        myShipController.addClient( name,  number,  election,  kilos,  totalPay);
         
     }
 
@@ -195,6 +197,30 @@ public class MorganApp{
         System.out.println(clientInformation);
 
     }
+
+
+    public static int typeClient(ShippingCompany myShipController){
+
+        System.out.println("1. Normal ");
+        System.out.println("2. Plata");
+        System.out.println("3. Oro");
+        System.out.println("4. Platinum");
+
+        int election = askInt();
+
+        while( election < 1|| election > 4){
+
+            System.out.println("No es una opcion valida. Vuelve a ingresar una opcion ");
+            election = askInt();
+        }
+
+        myShipController.typeClient(election);
+
+        return election;
+
+    }
+
+
 
 
 

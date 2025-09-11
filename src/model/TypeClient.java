@@ -1,10 +1,10 @@
 package model;
 
-public enum Level{
+enum TypeClient{
     NORMAL,
     PLATA,
     ORO,
-    PLATINUM;
+    PLATINUM
 
 }
 
